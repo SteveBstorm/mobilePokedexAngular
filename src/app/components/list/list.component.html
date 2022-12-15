@@ -1,0 +1,13 @@
+<h1>Pokedex</h1>
+<ul *ngIf="pokedex">
+  <li *ngFor="let poke of pokedex.results">
+    <a (click)="select(poke.url)" style="cursor : pointer;">{{poke.name}}</a>
+  </li>
+</ul>
+
+<hr />
+<button (click)="previous()" [disabled]="!pokedex.previous">Précédent</button>
+<button (click)="next()" [disabled]="!pokedex.next">Suivant</button>
+
+<hr />
+<app-detail [url]="selectedPokemon"></app-detail>
